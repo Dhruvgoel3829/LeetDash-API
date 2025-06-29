@@ -1,40 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 📊 LeetCode Stats API for ESP32 Dashboard
 
-## Getting Started
+A lightweight, no-authentication API built using **Vercel** to fetch your LeetCode statistics. Designed to work with an **ESP32** and a **2.4" ILI9341 SPI display**, this project allows you to view your LeetCode profile stats on a physical dashboard—no login or token needed, just your LeetCode username.
 
-First, run the development server:
+> ⚠️ This repo only contains the **stats retrieval API**.  
+> For the **hardware/display implementation**, visit: [LINK_TO_HARDWARE_REPO]
 
+---
+
+## ✨ Features
+
+- ✅ Fetches public LeetCode stats by username  
+- 🚀 Hosted via Vercel (Serverless Functions)  
+- 🔐 No login, API key, or OAuth required  
+- 🧠 Minimal JSON response with all relevant fields  
+- 📟 Designed for microcontrollers (like ESP32) with limited memory  
+
+---
+
+## 📦 API Usage
+
+### 🔗 Endpoint
+
+``` GET /api/leetcode:username ```
+
+
+**Example:**
+[https://leetcodestat.vercel.app/api/leetcode/Dhruvgoel3829](https://leetcodestat.vercel.app/api/leetcode/Dhruvgoel3829)
+
+```json
+{
+  "username": "dhruvgoel3829",
+  "profile": {
+    "ranking": 736371,
+    "reputation": 0,
+    "realName": "Dhruv Goel"
+  },
+  "submitStats": {
+    "acSubmissionNum": [
+      {
+        "difficulty": "All",
+        "count": 174,
+        "submissions": 186
+      },
+      {
+        "difficulty": "Easy",
+        "count": 106,
+        "submissions": 113
+      },
+      {
+        "difficulty": "Medium",
+        "count": 64,
+        "submissions": 69
+      },
+      {
+        "difficulty": "Hard",
+        "count": 4,
+        "submissions": 4
+      }
+    ]
+  }
+}
+```
+Change the **username** (Dhruvgoel3829) to any valid username to fetch **public profile** data
+
+## 🚀 Deployment
+
+### ▶️ Method 1: Deploy to Vercel (Recommended)
+
+1. **Fork this repository**
+2. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+3. Click **"Import Project"**, and select your forked repo
+4. Use default settings (Vercel auto-detects the API route)
+5. After deployment, your API will be available at:
+``` <your-vercel-project>.vercel.app/api/leetcode<leetcode-username> ```
+
+### ▶️ Method 2: Local Development
+
+If you'd like to run the project locally:
 ```bash
+git clone https://github.com/your-username/leetcode-esp32-api.git
+cd leetcode-esp32-api
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The API will be available at ``` http://localhost:3000/api/leetcode/<username> ```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 📄 License
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+This project is licensed under the **MIT License** — see the [LICENSE](./LICENSE) file for details.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+You are free to use, modify, and distribute this project, even commercially. Attribution is appreciated but not required.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🙌 Credits
 
-## Learn More
+- 🧠 Built using the unofficial **LeetCode GraphQL API**
+- ⚡ Hosted effortlessly with [Vercel](https://vercel.com)
+- 🛠️ Inspired by DIY IoT dashboards and maker community projects
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
