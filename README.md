@@ -3,7 +3,7 @@
 A lightweight, no-authentication API built using **Vercel** to fetch your LeetCode statistics. Designed to work with an **ESP32** and a **2.4" ILI9341 SPI display**, this project allows you to view your LeetCode profile stats on a physical dashboard—no login or token needed, just your LeetCode username.
 
 > ⚠️ This repo only contains the **stats retrieval API**.  
-> For the **hardware/display implementation**, visit: [LINK_TO_HARDWARE_REPO]
+> For the **hardware/display implementation**, visit: [LINK_TO_HARDWARE_REPO](https://github.com/Dhruvgoel3829/LeetDash)
 
 ---
 
@@ -78,8 +78,8 @@ Change the **username** (Dhruvgoel3829) to any valid username to fetch **public 
 
 If you'd like to run the project locally:
 ```bash
-git clone https://github.com/your-username/leetcode-esp32-api.git
-cd leetcode-esp32-api
+git clone https://github.com/LeetDash-API.git
+cd LeetDash-API
 npm install
 npm run dev
 ```
