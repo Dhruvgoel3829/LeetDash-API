@@ -78,7 +78,7 @@ Change the **username** (Dhruvgoel3829) to any valid username to fetch **public 
 
 If you'd like to run the project locally:
 ```bash
-git clone https://github.com/LeetDash-API.git
+git clone https://github.com/Dhruvgoel3829/LeetDash-API.git
 cd LeetDash-API
 npm install
 npm run dev
